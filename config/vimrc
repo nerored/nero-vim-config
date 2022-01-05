@@ -1,1 +1,27 @@
-echom 'hello world'
+echom 'config process begin'
+
+if ! has('nvim') && &compatible
+	" vint: -ProhibitSetNoCompatible
+	set nocompatible
+	" vint: +ProhibitSetNoCompatible
+endif
+
+" Set main configuration directory as parent directory
+let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+
+" Initialize base requirements
+if has('vim_starting')
+	" Global Mappings "{{{
+	" Use spacebar as leader and ; as secondary-leader
+	" Required before loading plugins!
+	let g:mapleader="\<Space>"
+	let g:maplocalleader=';'
+
+	" Release keymappings prefixes, evict entirely for use of plug-ins.
+	nnoremap <Space>  <Nop>
+	xnoremap <Space>  <Nop>
+	nnoremap ,        <Nop>
+	xnoremap ,        <Nop>
+	nnoremap ;        <Nop>
+	xnoremap ;        <Nop>
+endif
