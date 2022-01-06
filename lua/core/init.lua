@@ -1,5 +1,5 @@
 -- 配置启动文件,做一些初始化相关事情，以及加载插件包管理器
-require("utils")
+require("core.utils")
 
 local function clear_user_autocmd()
 	vim.api.nvim_exec(
