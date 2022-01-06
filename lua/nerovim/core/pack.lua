@@ -5,16 +5,21 @@
 local packer = setmetatable({},{
 })
 
+local packer_url = 'https://github.com/wbthomason/packer.nvim' 
+
 function packer:init()
 	print("find packer file or clone it")
 	local install_path = os.getenv("DAT_PATH") .. "site/pack/packer/start/packer.nvim"
-	print(install_path)
-	if vim.fn.filereadable(install_path) == 1 then
-		print("packer is installed")
-	else
-		print("packer is not installed")
-		local install_cmd = '!git clone --depth 1 https://github.com/wbthomason/packer.nvim ' .. install_path
-		print(vim.api.nvim_command(install_cmd))
+	if vim.fn.isdirectory(install_path) == 0 then
+		print("try clone")
+		local output = vim.api.nvim_exec(
+			string.format('!git clone --depth 1 %s %s',packer_url,install_path),
+		true)
+
+		if string.len(output) > 0 then
+			print(output)
+			print("please restart and try again")
+		end
 	end
 	return self
 end

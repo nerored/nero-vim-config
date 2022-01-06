@@ -59,7 +59,7 @@ local function main()
 	print("set DAT_PATH ",os.getenv("DAT_PATH"))
 
 	-- load packer to managment plugins
-	local packer = require("nerovim.core.pack"):init()
+	--local packer = require("nerovim.core.pack"):init()
 end
 
 main()
