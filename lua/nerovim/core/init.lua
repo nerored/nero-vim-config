@@ -53,12 +53,13 @@ local function main()
 		vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand('<sfile>:p')),":h:h")
 
 	-- dat_path is plugins,logs,swaps and so on
-	vim.env.DAT_PATH = vim.fn.expand('~/.cache/nvim')
+	vim.env.DAT_PATH = vim.fn.expand('~/.local/share/nvim/')
 
 	print("set VIM_PATH ",os.getenv("VIM_PATH"))
 	print("set DAT_PATH ",os.getenv("DAT_PATH"))
 
 	-- load packer to managment plugins
+	local packer = require("nerovim.core.pack"):init()
 end
 
 main()
