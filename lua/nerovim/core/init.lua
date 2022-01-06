@@ -40,9 +40,7 @@ local function init_leader_map_and_resetmap()
 end
 
 local function main()
-	print("config core start")
 	if is_vim_starting() then 
-		print("is first start")
 		clear_user_autocmd()
 		disable_distribution_plugins()
 		init_leader_map_and_resetmap()
@@ -55,11 +53,8 @@ local function main()
 	-- dat_path is plugins,logs,swaps and so on
 	vim.env.DAT_PATH = vim.fn.expand('~/.local/share/nvim/')
 
-	print("set VIM_PATH ",os.getenv("VIM_PATH"))
-	print("set DAT_PATH ",os.getenv("DAT_PATH"))
-
 	-- load packer to managment plugins
-	--local packer = require("nerovim.core.pack"):init()
+	local packer = require("nerovim.core.pack"):init()
 end
 
 main()
