@@ -1,3 +1,3 @@
 if not vim.g.vscode then
-	require("core")
+	require("nerovim.core")
 end
