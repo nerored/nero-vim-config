@@ -46,10 +46,6 @@ local function main()
 		init_leader_map_and_resetmap()
 	end
 
-	-- vim_path is config root
-	vim.env.VIM_PATH =
-		vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand('<sfile>:p')),":h:h")
-
 	-- load packer to managment plugins
 	local packer = require("nerovim.core.pack"):init()
 end
