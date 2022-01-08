@@ -8,7 +8,7 @@ local packer = setmetatable({},{
 local packer_url = 'https://github.com/wbthomason/packer.nvim' 
 
 function packer:init()
-	local install_path = os.getenv("DAT_PATH") .. "site/pack/packer/start/packer.nvim"
+	local install_path = vim.fn.stdpath("data") .. "site/pack/packer/start/packer.nvim"
 	if vim.fn.isdirectory(install_path) == 0 then
 		vim.api.nvim_command(
 			string.format('!git clone --depth 1 %s %s',packer_url,install_path))
