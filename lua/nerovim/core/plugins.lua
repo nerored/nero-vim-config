@@ -6,7 +6,7 @@ return {
 	},
 	-- UI
 	{
-		"glepnir/dashboard-nvim",
+		'goolord/alpha-nvim',
 		event = "BufWinEnter",
 		config = function()
 			require("nerovim.ui.dashboard").setup()
