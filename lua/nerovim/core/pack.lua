@@ -7,19 +7,25 @@ local plugins = setmetatable({},{
 
 local packer_url = 'https://github.com/wbthomason/packer.nvim' 
 
+-- 首次初始化时使用
 function plugins:init()
-	local install_path = vim.fn.stdpath("data") .. "site/pack/packer/start/packer.nvim"
+	local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 	if vim.fn.isdirectory(install_path) == 0 then
-		vim.fn.system("git","clone","--depth 1",packer_url,install_path)
+		local a = vim.fn.system {"git","clone","--depth", "1",packer_url,install_path}
 	end
+
+	-- load packer mod
+	vim.cmd [[packadd packer.nvim]]
 
 	local ok,packer = pcall(require,"packer")
 	
 	if not ok then
 		--TODO::check packer errorinfo
+		print("packer not ok")
+		return
 	end
 
-	packer.init({
+	packer.init {
 		package_root = package_root,
     		compile_path = compile_path,
     		git = {
@@ -30,12 +36,32 @@ function plugins:init()
       			},
     		},
     		max_jobs = 50,
-    		},
-	)
+    	}
 
 	-- 加载配置列表
+	-- mustld plugins
+	local mustld_plugins = require "nerovim.core.plugins"
+	for _,item in pairs(mustld_plugins) do
+		packer.startup(function(use)
+			use(item)
+		end)
+	end
+	-- option plugins
+	-- custom plugins
 
 	return self
+end
+
+-- 重载时使用
+function plugins:reload()
+	local ok,packer = pcall(require,"packer")
+
+	if not ok then
+		print("packer not ok")
+		return
+	end
+
+	packer.reset()
 end
 
 return plugins
