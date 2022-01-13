@@ -52,9 +52,9 @@ M.setup = function()
 	dashboard.section.footer.val = footer()
         dashboard.section.footer.opts.hl = "Number"
 
-        alpha.setup(dashboard.opts)
+    alpha.setup(dashboard.opts)
 
-        vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
+    vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
 end
 
 return M
