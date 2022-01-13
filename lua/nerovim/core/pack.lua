@@ -41,11 +41,11 @@ function plugins:init()
 	-- 加载配置列表
 	-- mustld plugins
 	local mustld_plugins = require "nerovim.core.plugins"
-	for _,item in pairs(mustld_plugins) do
-		packer.startup(function(use)
+	packer.startup(function(use)
+		for _,item in pairs(mustld_plugins) do
 			use(item)
-		end)
-	end
+		end
+	end)
 	-- option plugins
 	-- custom plugins
 
