@@ -21,5 +21,19 @@ return {
     		config = function() 
 			require("nerovim.ui.nvimtree").setup()
 		end,
-	}
+	},
+	{
+		'romgrk/barbar.nvim',
+  		requires = {
+			'kyazdani42/nvim-web-devicons'
+		},
+		event = "BufWinEnter",
+	},
+	{
+    		"nvim-lualine/lualine.nvim",
+    		config = function()
+      			require("nerovim.ui.lualine").setup()
+    		end,
+	},
+
 }
