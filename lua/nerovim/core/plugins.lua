@@ -23,6 +23,12 @@ return {
 		end,
 	},
 	{
+		'simrat39/symbols-outline.nvim',
+		config = function()
+			require("nerovim.ui.nvimtree").setup()
+		end,
+	},
+	{
 		'romgrk/barbar.nvim',
   		requires = {
 			'kyazdani42/nvim-web-devicons'
