@@ -40,7 +40,7 @@ function plugins:init()
 
 	-- 加载配置列表
 	-- mustld plugins
-	local mustld_plugins = require "nerovim.core.plugins"
+	local mustld_plugins = require "core.plugins"
 	packer.startup(function(use)
 		for _,item in pairs(mustld_plugins) do
 			use(item)

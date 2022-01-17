@@ -9,7 +9,7 @@ return {
 		'goolord/alpha-nvim',
 		event = "BufWinEnter",
 		config = function()
-			require("nerovim.ui.dashboard").setup()
+			require("ui.dashboard").setup()
 		end,
 		--disable = not nerovim.builtin.dashboard.active
 	},
@@ -19,13 +19,13 @@ return {
       			'kyazdani42/nvim-web-devicons',
     		},
     		config = function() 
-			require("nerovim.ui.nvimtree").setup()
+			require("ui.nvimtree").setup()
 		end,
 	},
 	{
 		'simrat39/symbols-outline.nvim',
 		config = function()
-			require("nerovim.ui.nvimtree").setup()
+			require("ui.nvimtree").setup()
 		end,
 	},
 	{
@@ -38,7 +38,7 @@ return {
 	{
     		"nvim-lualine/lualine.nvim",
     		config = function()
-      			require("nerovim.ui.lualine").setup()
+      			require("ui.lualine").setup()
     		end,
 	},
 
