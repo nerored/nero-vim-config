@@ -46,6 +46,9 @@ local function main()
 		init_leader_map_and_resetmap()
 	end
 
+	-- default mappings
+	-- require("editor.keymappings").load_defaults()
+
 	-- load packer to managment plugins
 	local packer = require("core.pack"):init()
 end
