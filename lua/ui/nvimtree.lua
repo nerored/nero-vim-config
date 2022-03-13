@@ -102,7 +102,7 @@ end
 
 
 local function on_open()
-	require'bufferline.state'.set_offset(30, '')
+	require'bufferline.state'.set_offset(31, '')
    	require'nvim-tree'.find_file(true)
 end
 
